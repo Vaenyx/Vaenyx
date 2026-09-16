@@ -2,13 +2,13 @@ interface Envs {
 	emails: Set<string>;
 }
 
-function toSet(input: string) {
-    return new Set(
-        input
-            .split(',')
-            .map(email => email.trim().toLowerCase())
-            .filter(Boolean)
-    );
+function toSet(input: string): Set<string> {
+	return new Set(
+		input
+			.split(',')
+			.map((email) => email.trim().toLowerCase())
+			.filter(Boolean),
+	);
 }
 
 function getEnvs(): Envs {
@@ -16,7 +16,7 @@ function getEnvs(): Envs {
 	const emails = toSet(process.env['MY_GIT_EMAILS']);
 
 	return {
-		emails: toSet(process.env['MY_GIT_EMAILS']),
+		emails: emails,
 	};
 }
 
@@ -26,7 +26,7 @@ export interface CONFIG extends Envs {
 	username: string;
 }
 
-export const CONFIG = {
-	...envs,
+export const CONFIG: CONFIG = {
+	emails: envs.emails,
 	username: 'Vaenyx',
 };

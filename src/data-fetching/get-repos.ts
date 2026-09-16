@@ -10,10 +10,10 @@ export async function getRepos(username: string): Promise<GitHubRepository[]> {
 	const repos: GitHubRepository[] = [];
 
 	for (let page = 1; ; page++) {
-		const response = await fetch(`https://api.github.com/users/${username}/repos?type=owner&per_page=100&page=${page}`);
+		const response = await fetch(`https://api.github.com/users/${username}/repos?type=owner&per_page=100&page=${String(page)}`);
 
 		if (!response.ok) {
-			throw new Error(`GitHub API error ${response.status}: ${await response.text()}`);
+			throw new Error(`GitHub API error ${String(response.status)}: ${await response.text()}`);
 		}
 
 		const current = (await response.json()) as GitHubRepository[];

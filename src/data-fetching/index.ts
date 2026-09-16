@@ -4,9 +4,9 @@ import path from 'node:path';
 
 import { CONFIG } from '../config.js';
 import { getRepos } from './get-repos.js';
-import { getCommits, type Commit } from './get-commits.js';
+import { getCommits } from './get-commits.js';
 import { cloneRepo } from './clone-repo.js';
-import { getAuthoredLines, type AuthoredLineResponse } from './get-authored-lines.js';
+import { getAuthoredLines, type AuthoredLinesResponse } from './get-authored-lines.js';
 
 interface UniqueCommit {
 	hash: string;
@@ -27,20 +27,20 @@ interface fetchDataReponse {
 }
 
 export async function fetchData(): Promise<fetchDataReponse> {
-	console.log(`Loaded ${CONFIG.emails.size} git identities`);
+	console.log(`Loaded ${String(CONFIG.emails.size)} git identities`);
 
 	const repos = await getRepos(CONFIG.username);
 
-	console.log(`Found ${repos.length} repositories`);
+	console.log(`Found ${String(repos.length)} repositories`);
 
 	const contributedRepos = new Set<string>();
 	const uniqueCommits = new Map<string, UniqueCommit>();
-	const totals: AuthoredLineResponse = { totalLines: 0, languageTotalLines: {} };
+	const totals: AuthoredLinesResponse = { totalLines: 0, languageTotalLines: {} };
 
 	const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'profile-stats-'));
 
 	for (const [index, repo] of repos.entries()) {
-		console.log(`Cloning repo ${index + 1} (${repo.name})`);
+		console.log(`Cloning repo ${String(index + 1)} (${repo.name})`);
 
 		const repoPath = await cloneRepo(repo.clone_url, repo.name, tempDir);
 		const commits = await getCommits(repoPath);
@@ -79,7 +79,7 @@ export async function fetchData(): Promise<fetchDataReponse> {
 			totals.languageTotalLines[language] = (totals.languageTotalLines[language] ?? 0) + lines;
 		}
 
-		console.log(`commits=${myCommitCount}, loc=${loc.totalLines}`);
+		console.log(`commits=${String(myCommitCount)}, loc=${String(loc.totalLines)}`);
 	}
 
 	return {

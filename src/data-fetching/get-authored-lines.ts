@@ -2,12 +2,12 @@ import { detectLanguage } from './detect-language.js';
 import { blameFile } from './blame-file.js';
 import { getTrackedFiles } from './get-tracked-files.js';
 
-interface AuthoredLinesReponse {
+export interface AuthoredLinesResponse {
 	totalLines: number;
 	languageTotalLines: Record<string, number>;
 }
 
-export async function getAuthoredLines(repoPath: string, myEmails: Set<string>): Promise<AuthoredLinesReponse> {
+export async function getAuthoredLines(repoPath: string, myEmails: Set<string>): Promise<AuthoredLinesResponse> {
 	const files = await getTrackedFiles(repoPath);
 
 	let total = 0;

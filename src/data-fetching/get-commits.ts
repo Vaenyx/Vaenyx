@@ -12,16 +12,7 @@ interface Commit {
 export async function getCommits(repoPath: string): Promise<Commit[]> {
 	const separator = '\x1f';
 
-  const { stdout } = await execFileAsync(
-  "git",
-  [
-    "-C",
-    repoPath,
-    "log",
-    "--all",
-    `--format=%H${separator}%an${separator}%ae${separator}%at`,
-  ],
-);
+	const { stdout } = await execFileAsync('git', ['-C', repoPath, 'log', '--all', `--format=%H${separator}%an${separator}%ae${separator}%at`]);
 
 	return stdout
 		.trim()
