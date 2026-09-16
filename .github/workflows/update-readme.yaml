@@ -1,49 +1,48 @@
 name: Update profile README
 
 on:
-  workflow_dispatch:
+    workflow_dispatch:
 
-  schedule:
-    - cron: "0 4 * * *"
-      timezone: "Europe/Berlin"
+    schedule:
+        - cron: '0 4 * * *'
+          timezone: 'Europe/Berlin'
 
 permissions:
-  contents: write
+    contents: write
 
 jobs:
-  update:
-    runs-on: ubuntu-latest
+    update:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v7
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: 22
-          cache: npm
+            - name: Setup Node.js
+              uses: actions/setup-node@v7
+              with:
+                  node-version: 22
+                  cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+            - name: Install dependencies
+              run: npm ci
 
-      - name: Update README
-        run: npm run run
-        env:
-          MY_GIT_EMAILS: ${{ secrets.MY_GIT_EMAILS }}
-          MY_GIT_NAMES: ${{ secrets.MY_GIT_NAMES }}
+            - name: Update README
+              run: npm run run
+              env:
+                  MY_GIT_EMAILS: ${{ secrets.MY_GIT_EMAILS }}
 
-      - name: Commit changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            - name: Commit changes
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add README.md
+                  git add README.md
 
-          if git diff --cached --quiet; then
-            echo "Nothing changed"
-            exit 0
-          fi
+                  if git diff --cached --quiet; then
+                    echo "Nothing changed"
+                    exit 0
+                  fi
 
-          git commit -m "chore: update profile stats"
-          git push
+                  git commit -m "chore: update profile stats"
+                  git push

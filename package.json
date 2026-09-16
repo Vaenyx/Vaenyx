@@ -1,20 +1,24 @@
 {
-  "name": "vaenyx",
-  "version": "1.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "run": "tsx src/index.ts",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint . --max-warnings 0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@types/node": "^22.20.3",
-    "eslint": "^10.8.1",
-    "globals": "^17.12.0",
-    "tsx": "^4.23.13",
-    "typescript": "6.0",
-    "typescript-eslint": "^8.70.0"
-  }
+	"name": "vaenyx",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"run": "tsx src/index.ts",
+		"typecheck": "tsc --noEmit",
+		"lint": "eslint . --max-warnings 0",
+		"format": "npx prettier . --write"
+	},
+	"devDependencies": {
+		"@eslint/js": "^10.0.1",
+		"@types/node": "^22.20.3",
+		"eslint": "^10.8.1",
+		"globals": "^17.12.0",
+		"tsx": "^4.23.13",
+		"typescript": "6.0",
+		"typescript-eslint": "^8.70.0"
+	},
+	"dependencies": {
+		"prettier": "^3.9.7"
+	}
 }
