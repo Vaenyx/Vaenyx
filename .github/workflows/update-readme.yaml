@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Update README
-        run: npm run update-readme
+        run: npm run run
         env:
           MY_GIT_EMAILS: ${{ secrets.MY_GIT_EMAILS }}
           MY_GIT_NAMES: ${{ secrets.MY_GIT_NAMES }}
