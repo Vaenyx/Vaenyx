@@ -1,3 +1,5 @@
 ## Vaenyx
 
-<STATS>Stats will appear here...</STATS>
+<!-- STATS:START -->
+Stats will appear here...
+<!-- STATS:END -->
