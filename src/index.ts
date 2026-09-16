@@ -1,1 +1,3 @@
-console.log("Vaenyx action running");
+import { writeReadme } from "./write-readme.ts";
+
+writeReadme(new Date().toISOString());
