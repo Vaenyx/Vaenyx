@@ -1,3 +1,3 @@
-import { writeReadme } from "./write-readme.ts";
+import { writeReadme } from "./write-readme.js";
 
-writeReadme(new Date().toISOString());
+void await writeReadme(new Date().toISOString());
