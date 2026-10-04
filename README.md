@@ -5,7 +5,7 @@
 {
   "repositoriesScanned": 19,
   "repositoriesContributedTo": 19,
-  "uniqueCommits": 212,
+  "uniqueCommits": 197,
   "authoredLines": 25746,
   "languageAuthoredLines": {
     "TypeScript": 18279,
