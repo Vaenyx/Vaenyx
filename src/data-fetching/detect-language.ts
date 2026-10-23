@@ -14,6 +14,7 @@ const languages: Record<string, string> = {
 	'.sh': 'Shell',
 	'.bash': 'Shell',
 	'.lua': 'Lua',
+	".ll": "LLVM",
 };
 
 export function detectLanguage(filename: string): string | undefined {
