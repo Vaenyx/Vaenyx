@@ -5,15 +5,21 @@
 {
   "repositoriesScanned": 20,
   "repositoriesContributedTo": 20,
-  "uniqueCommits": 233,
-  "authoredLines": 25756,
+  "uniqueCommits": 234,
+  "authoredLines": 49447,
   "languageAuthoredLines": {
-    "TypeScript": 18280,
+    "TypeScript": 18319,
+    "YAML": 15261,
+    "Markdown": 4521,
     "Rust": 3228,
+    "JSON": 2583,
     "Python": 2212,
-    "JavaScript": 1124,
+    "JavaScript": 1232,
+    "CSS": 939,
     "Cpp": 755,
     "Shell": 148,
+    "TOML": 131,
+    "HTML": 109,
     "LLVM": 9
   }
 }
