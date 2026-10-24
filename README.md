@@ -5,8 +5,8 @@
 {
   "repositoriesScanned": 20,
   "repositoriesContributedTo": 20,
-  "uniqueCommits": 234,
-  "authoredLines": 49447,
+  "uniqueCommits": 246,
+  "authoredLines": 49543,
   "languageAuthoredLines": {
     "TypeScript": 18319,
     "YAML": 15261,
@@ -20,7 +20,7 @@
     "Shell": 148,
     "TOML": 131,
     "HTML": 109,
-    "LLVM": 9
+    "LLVM": 105
   }
 }
 ```
